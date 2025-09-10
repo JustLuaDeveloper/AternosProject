@@ -1,5 +1,5 @@
 local realGenv = getgenv()
-
+print("adad")
 setmetatable(realGenv, {
     __newindex = function(t, k, v)
         if tostring(k) == "request" then
