@@ -13,8 +13,6 @@ return function(config)
     }
     local cont = table.concat(text, "\n")
     utils.SendWebHook(config.webhook, cont)
-    print("[AternosProtect] Loaded...")
-    utils.AntiHttp(utils, config)
     print("Search filter..")
     utils.SearchFilter(utils, config)
 end
