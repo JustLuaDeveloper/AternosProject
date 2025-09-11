@@ -3,7 +3,7 @@ local function req(url)
 end
 local items = {
     AntiHttp = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/Antihttp.lua",
-    SendWebHook = "https://raw.githubusercontent.com/Player01010111Cheater/AternosClient/main/util/items/SendWebHook.lua",
+    SendWebHook = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/SendWebHook.lua",
 }
 
 local utils = {}
