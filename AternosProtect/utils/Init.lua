@@ -1,10 +1,18 @@
 local function req(url)
     return loadstring(game:HttpGet(url))()
 end
+local success, info = pcall(function()
+    return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+end)
+local placeName = ""
+if success then
+    placeName = #info.Name > 50 and string.sub(info.Name, 1, 50) .. "..." or info.Name
+end
 local items = {
     AntiHttp = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/Antihttp.lua",
     SearchFilter = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/SearchFilter.lua",
     SendWebHook = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/SendWebHook.lua",
+    GameName = placeName
 }
 
 local utils = {}
