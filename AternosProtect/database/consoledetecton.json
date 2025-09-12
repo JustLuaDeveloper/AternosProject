@@ -1,3 +1,4 @@
 [
-  "webhooks", "webhook", "DEBUG"
+  "webhooks", "webhook", "https://discord.com/api/webhooks/",
+  "httpspy", "ketamine", "octospy"
 ]
