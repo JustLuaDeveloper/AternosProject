@@ -1,3 +1,5 @@
-[
-  "Ketamine", "httpspy"
-]
+{
+  "SimpleSpy", "Ketamine","DarkSpy",
+  "RbxSpy","HttpsSpy","HttpSpy",
+  "Http","Https","SkidSpy"
+}
