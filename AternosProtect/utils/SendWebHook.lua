@@ -1,16 +1,15 @@
-local https = game:GetService("HttpService")
-return function(webhook,text)
-    local data = {
-        ["content"] = text,
-        ["username"] = "AternosProtect"
-    }
-    local body = https:JSONEncode(data)
-    request({
+local http_request = (syn and syn.request) 
+    or (http and http.request) 
+    or request 
+    or httprequest 
+    or (fluxus and fluxus.request)
+return function(webhook,data)
+    http_request({
         Url = webhook,
         Method = "POST",
         Headers = {
             ["Content-Type"] = "application/json"
         },
-        Body = body
+        Body = data
     })
 end
