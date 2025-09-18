@@ -17,6 +17,7 @@ local items = {
     ScriptFilter = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/ScriptFilter.lua",
     BlackList = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/BlackList.lua",
     GuiFilter = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/GuiFilter.lua",
+    AntiDebug = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/AntiDebug.lua",
     GameName = placeName
 }
 
