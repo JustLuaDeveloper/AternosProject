@@ -1,0 +1,126 @@
+Documentation for config
+local config = {
+    Enabled = true,
+    webhook = "string",
+    webhook_forcracklog = "string or nil",
+    SearchFilter = true or {"manual","list"} or false,
+    ScriptsFilter = true or {"manual","list"} or false,
+    UIDetector = true or {"manual","list"} or false,
+    UIDetectorSearchAll = false,
+    FullInfo = true,
+    BlockOtherWebHooksRequest = false,
+    ConsoleDetector = true,
+    PlayersBlackList = true or {} or {"name1","name2"},
+    MaxPlayers = 6,
+    AntiDebug = false,
+    discordLink = "string or empty"
+}
+
+
+Fields explained:
+
+Enabled
+Type: boolean.
+Turns protection on or off. true = protection active. false = disabled.
+
+webhook
+Type: string (URL).
+Main Discord webhook for logs and alerts. Must be a valid URL.
+
+webhook_forcracklog
+Type: string or nil.
+Separate webhook for crack/hack logs. If unused set "" or nil.
+
+SearchFilter
+Type: boolean | table | false.
+UI/global object search filter.
+
+true = automatic detection (online rules/databases).
+
+{ "pattern1", "pattern2" } = manual substring/pattern list.
+
+false = disabled.
+
+ScriptsFilter
+Type: boolean | table | false.
+Script filter. Same behavior as SearchFilter. Used to filter loaded/pasted scripts.
+
+UIDetector
+Type: boolean | table | false.
+Detect suspicious UI (ScreenGui etc.).
+
+true = automatic.
+
+table = manual names/patterns.
+
+false = disabled.
+
+UIDetectorSearchAll
+Type: boolean.
+true = scan all UI without limits. false = apply extra filters/exceptions.
+
+FullInfo
+Type: boolean.
+If true send full info to webhook (stack, full GUI path, extra fields). If false send reduced logs.
+
+BlockOtherWebHooksRequest
+Type: boolean.
+If true block attempts to send data to external webhooks (leak attempts). Requires HTTP request interception support in the executor.
+
+ConsoleDetector
+Type: boolean.
+Detect console/devtools open. true = enabled.
+
+PlayersBlackList
+Type: boolean | table | {}.
+Controls player name visibility in logs.
+
+true = automatic hiding/anonymizing of suspicious names.
+
+{} or {"name1"} = explicit list of names to hide/ignore.
+
+false = show all names.
+
+MaxPlayers
+Type: number.
+Maximum number of players included in a log. If player count > MaxPlayers only the first MaxPlayers are logged.
+
+AntiDebug
+Type: boolean.
+Enables extra anti-debug measures (hooks, prevent attach, etc.). May break legitimate executors. Default false.
+
+discordLink
+Type: string.
+Extra string inserted into logs (e.g., Discord invite or tag). Empty string "" = omitted.
+
+Examples
+
+Automatic mode (default):
+
+config.SearchFilter = true
+config.ScriptsFilter = true
+config.UIDetector = true
+
+
+Manual mode for UI and scripts:
+
+config.UIDetector = {"http","spy","cheatUI"}    -- search these substrings in UI names
+config.ScriptsFilter = {"exploit","paste","evil_script"}
+
+
+Disable full content:
+
+config.FullInfo = false
+
+
+Limit logged players:
+
+config.MaxPlayers = 4
+
+Recommendations
+
+Validate webhook URL format.
+
+When enabling BlockOtherWebHooksRequest confirm the executor supports HTTP interception.
+
+AntiDebug can conflict with some executors. Enable only after testing.
