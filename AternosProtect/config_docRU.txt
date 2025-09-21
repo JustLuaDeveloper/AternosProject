@@ -1,0 +1,128 @@
+Документация на config
+local config = {
+    Enabled = true,
+    webhook = "string",
+    webhook_forcracklog = "string or nil",
+    SearchFilter = true or {"manual","list"} or false,
+    ScriptsFilter = true or {"manual","list"} or false,
+    UIDetector = true or {"manual","list"} or false,
+    UIDetectorSearchAll = false,
+    FullInfo = true,
+    BlockOtherWebHooksRequest = false,
+    ConsoleDetector = true,
+    PlayersBlackList = true or {} or {"name1","name2"},
+    MaxPlayers = 6,
+    AntiDebug = false,
+    discordLink = "string or empty"
+}
+
+
+Поля подробно:
+
+Enabled
+Тип: boolean.
+Описание: Включает/выключает всю защиту. true — защита активна. false — ничего не работает.
+
+webhook
+Тип: string (URL).
+Описание: Основной Discord webhook для логов и оповещений. Должен быть валидным URL.
+
+webhook_forcracklog
+Тип: string или nil.
+Описание: Отдельный webhook для логов о взломах/кракинге. Если не нужен — оставить пустым ("") или nil.
+
+SearchFilter
+Типы: boolean | table | false.
+Описание: Фильтр поиска UI/глобальных объектов.
+
+true — автоматическое обнаружение по данным с веба/правилам.
+
+{ "pattern1", "pattern2" } — ручный список подстрок/паттернов для обнаружения.
+
+false — отключено.
+
+ScriptsFilter
+Типы: boolean | table | false.
+Описание: Фильтр скриптов. Поведение как у SearchFilter. Используется для фильтрации загруженных/вставленных скриптов.
+
+UIDetector
+Типы: boolean | table | false.
+Описание: Поиск подозрительных UI (ScreenGui и т.д.).
+
+true — автоматический режим.
+
+таблица — ручные названия/паттерны.
+
+false — отключено.
+
+UIDetectorSearchAll
+Тип: boolean.
+Описание: Если true — сканировать все UI без ограничений. Если false — применять дополнительные фильтры/исключения.
+
+FullInfo
+Тип: boolean.
+Описание: Включает отправку полной информации в webhook (стек, полный путь GUI, дополнительные поля). При false отправляются сокращённые логи.
+
+BlockOtherWebHooksRequest
+Тип: boolean.
+Описание: Если true — блокирует попытки отправки данных на внешние webhooks (попытки утечки через другие URL). Требует механизмов перехвата HTTP-запросов в исполнителе.
+
+ConsoleDetector
+Тип: boolean.
+Описание: Отслеживать открытие консоли/использование devtools. true — включено.
+
+PlayersBlackList
+Типы: boolean | table | {}.
+Описание: Управляет показом имён игроков в логах.
+
+true — автоматическое скрытие/анонимизация подозрительных имён.
+
+{} или {"name1"} — список имён, которые нужно скрывать или игнорировать.
+
+false — показывать всех.
+
+MaxPlayers
+Тип: number.
+Описание: Максимум игроков, чьи данные включаются в лог. Если игроков больше — в лог попадут только первые MaxPlayers.
+
+AntiDebug
+Тип: boolean.
+Описание: Включает дополнительные меры против дебаггинга (хуки, запрет attach и т.п.). Может ломать легитимные эксплойты. По умолчанию false.
+
+discordLink
+Тип: string.
+Описание: Дополнительная строка для вставки в лог (например, ссылка на Discord сервер или тэг). Пустая строка "" — не отображается.
+
+Примеры использования
+
+Автоматический режим (по умолчанию):
+
+config.SearchFilter = true
+config.ScriptsFilter = true
+config.UIDetector = true
+
+
+Ручной режим для UI и скриптов:
+
+config.UIDetector = {"http","spy","cheatUI"} -- ищет эти подстроки в именах UI
+config.ScriptsFilter = {"exploit","paste","evil_script"}
+
+
+Отключить отправку полного контента:
+
+config.FullInfo = false
+
+
+Ограничить логирование по числу игроков:
+
+config.MaxPlayers = 4
+
+Рекомендации
+
+Проверяйте валидность webhook-URL.
+
+При включении BlockOtherWebHooksRequest убедитесь, что исполнитель поддерживает перехват HTTP.
+
+AntiDebug может конфликтовать с некоторыми исполнителями. Включайте только если тестировали.
+
+Если нужно, создам конфиг-пример с безопасными заглушками вместо реальных webhook.
