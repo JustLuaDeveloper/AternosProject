@@ -2,7 +2,6 @@ local blacklist = {
   "obem117vafer",
   "Bumscreamskibidi78",
   "kobloxu737473737",
-  "stas1231942",
   "168.90.63.153",
   "141.101.206.238",
   "14.191.65.229",
