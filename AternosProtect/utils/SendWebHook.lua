@@ -1,17 +1,18 @@
-local http_request = (syn and syn.request)
+local MainR = (syn and syn.request)
     or (http and http.request)
     or request
     or httprequest
     or (fluxus and fluxus.request)
+    or http_request
 
 return function(webhook, data)
-    if not http_request then
+    if not MainR then
         warn("No HTTP request function available")
         return
     end
 
     local success, response = pcall(function()
-        return http_request({
+        return MainR({
             Url = webhook,
             Method = "POST",
             Headers = {
@@ -29,4 +30,5 @@ return function(webhook, data)
         warn("Webhook error, status: " .. tostring(response and response.StatusCode))
     end
 end
+
 
