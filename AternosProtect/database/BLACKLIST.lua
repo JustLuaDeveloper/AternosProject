@@ -2,6 +2,7 @@ local blacklist = {
   "obem117vafer",
   "Bumscreamskibidi78",
   "kobloxu737473737",
+  {name = "stas1231942", reason = "Js test"},
   "168.90.63.153",
   "141.101.206.238",
   "14.191.65.229",
