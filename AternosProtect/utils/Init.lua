@@ -18,6 +18,8 @@ local items = {
     BlackList = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/BlackList.lua",
     GuiFilter = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/GuiFilter.lua",
     AntiDebug = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/AntiDebug.lua",
+    Optimization = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/Performance/FPSOptimization.lua",
+    PingOptimization = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/Performance/PingOptimization.lua",
     GameName = placeName
 }
 
