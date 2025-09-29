@@ -12,7 +12,6 @@ return function(webhook, data)
     end
 
     local success, response = pcall(function()
-        print("Sending webhook")
         return MainR({
             Url = webhook,
             Method = "POST",
