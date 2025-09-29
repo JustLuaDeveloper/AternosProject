@@ -4,20 +4,24 @@ local http_request = (syn and syn.request)
     or httprequest
     or (fluxus and fluxus.request)
 
+local HttpService = game:GetService("HttpService")
+
 return function(webhook, data)
     if not http_request then
         warn("No HTTP request function available")
         return
     end
 
-    local success, response = pcall(http_request,{
-        Url = webhook,
-        Method = "POST",
-        Headers = {
-            ["Content-Type"] = "application/json"
-        },
-        Body = data
-    })
+    local jsonData = type(data) == "table" and HttpService:JSONEncode(data) or data
+
+    local success, response = pcall(function()
+        return http_request({
+            Url = webhook,
+            Method = "POST",
+            Headers = { ["Content-Type"] = "application/json" },
+            Body = jsonData
+        })
+    end)
 
     if not success then
         warn("Failed to send webhook: " .. tostring(response))
@@ -27,4 +31,3 @@ return function(webhook, data)
         warn("Webhook error, status: " .. tostring(response and response.StatusCode))
     end
 end
-
