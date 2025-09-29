@@ -56,6 +56,6 @@ local blacklist = {
   "37.99.48.4",
   "171.236.49.140",
   "187.19.254.106",
-  "92.184.123.161"
+  {name = "92.184.123.161", reason = "AutoDetect"}
 }
 return blacklist
