@@ -15,6 +15,7 @@ local items = {
     AntiInject = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/ScriptFilter.lua",
     AntiDebug = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/AntiDebug.lua",
     AntiHttp = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/Antihttp.lua",
+    Kill = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/ProtectUtils/Detect.lua",
     SendWebHookData = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/SendWebHookData.lua",
     SendWebHook = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/SendWebHook.lua",
     BlackList = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/BlackList.lua",
