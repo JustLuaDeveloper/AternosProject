@@ -2,6 +2,7 @@ local blacklist = {
   "obem117vafer",
   "Bumscreamskibidi78",
   {name = "kobloxu737473737",reason = "AutoDetect"},
+  {name = "cosmofsv", reason = "Attempt to crack"},
   "168.90.63.153",
   "141.101.206.238",
   "14.191.65.229",
