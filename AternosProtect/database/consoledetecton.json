@@ -1,4 +1,5 @@
 [
   "https://discord.com/api/webhooks/",
-  "httpspy", "ketamine", "octospy"
+  "httpspy", "ketamine", "octospy",
+  "https://", "http://"
 ]
