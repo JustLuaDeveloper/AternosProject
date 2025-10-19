@@ -21,6 +21,7 @@ local items = {
     BlackList = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/BlackList.lua",
     Optimization = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/Performance/FPSOptimization.lua",
     PingOptimization = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/Performance/PingOptimization.lua",
+    GlobalProtection = "https://raw.githubusercontent.com/JustLuaDeveloper/AternosProject/main/AternosProtect/utils/Globalprot.lua",
     GameName = placeName
 }
 
